@@ -3,20 +3,28 @@ package com.launchcode.section6;
 public class Temperatutre {
     public static void main(String args []){
  int tempGrid [][]={{68,70,76,70,68,71,71},
-                           {76,76,87,84,82,75,83},
-                           {73,72,81,78,76,73,77},
-                           {64,65,69,68,70,74,72}};
+                    {76,76,87,84,82,75,83},
+                    {73,72,81,78,76,73,77},
+                    {64,65,69,68,70,74,72}};
         String [] days={"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
         String [] time={"7:00 AM","3:00 PM","7:00 PM","3:00 AM"};
 
         System.out.println("Temperature Calculator");
         System.out.println(" ");
         System.out.println("The data provided are :");
+       /* System.out.print("       ");
+        for (int i=0;i<days.length;i++) {
+            System.out.print("  "+days[i]);
+        }*/
+        System.out.println(" ");
         for(int i=0;i<4;i++){
             System.out.print(time[i]+": ");
             for(int j=0;j<7;j++){
 
-                System.out.print(tempGrid[i][j]+", ");
+                System.out.print(tempGrid[i][j]);
+                if (j<6){
+                    System.out.print(", ");
+                }
             }
             System.out.println(" ");
 
@@ -27,9 +35,9 @@ public class Temperatutre {
         System.out.println(" ");
         System.out.println("Based on that data, the following are the average temperature of the week.");
         System.out.println(" ");
-        for(int i=0;i<7;i++){
-            int sumAvgTempForEachDay=0;
-            for(int j=0;j<4;j++){
+        for(int i=0;i<7;i++){//iterating thro'columns
+            int sumAvgTempForEachDay=0; //sum should be set to 0 as it switches to the next column
+            for(int j=0;j<4;j++){// going thro' elements in the column
                 sumAvgTempForEachDay=sumAvgTempForEachDay+tempGrid[j][i];
             }
             System.out.println(days[i]+": "+(sumAvgTempForEachDay/4));
